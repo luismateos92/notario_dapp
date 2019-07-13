@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>
+    SCiBEth
+  </title>
+  <meta content="La primera página de compras y subastas en la Blockchain." name="description" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Notario Virtual en el Blockchain de Ethereum" property="og:title" />
+  <meta content="website" property="og:type" />
+  <meta content="https://www.ethereum.org/images/logos/ETHEREUM-ICON_Black_small.png" property="og:image" />
+  <meta content="La primera página de compras y subastas en la Blockchain." property="og:description" />
+  <meta content="https://luismateosfernandez.es/" property="og:url" />
+  <meta content="Notario Virtual en el Blockchain de Ethereum" property="og:site_name" />
+  <meta content="Tienda de compra/venta y subastas contralado por el Blockchain de Ethereum." name="twitter:card" />
+  <link href="https://www.ethereum.org/images/logos/ETHEREUM-ICON_Black_small.png" rel="icon" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="./app.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      cargarDatos(document.getElementById("valor2"));
+      cargarDatos(document.getElementById("valor3"));
+    }
+
+    function cargarDatos(VALOR) {
+      var xhReq = new XMLHttpRequest();
+      xhReq.open("GET", "https://api.coinmarketcap.com/v2/ticker/1027/?convert=EUR", false);
+      xhReq.send(null);
+      var jsonObject = JSON.parse(xhReq.responseText);
+      var precioEthAEur = jsonObject.data.quotes.EUR.price;
+
+      console.log(precioEthAEur);
+
+      VALOR.value = precioEthAEur;
+
+    }
+  </script>
+</head>
+
+<body>
+
+  <div id="metamask-ausente" style="display:none; max-width: 1500px;
+    margin: 10px auto;">
+    <div class="alert alert-danger text-center" role="alert">
+      <div><strong>No conectado</strong></div>
+      <div>Para acceder a SCiBEth desde un navegador web, instale <a href="https://metamask.io/">Metamask</a> y vuelva a
+        cargar esta página.</div>
+    </div>
+  </div>
+
+  <div id="metamask-activo" style="display: none;"></div>
+  <!-- Navigation -->
+  <div class="fixed-top">
+    <nav class="navbar-light navbar-toggleable-md bg-faded">
+      <div class="container">
+        <button aria-controls="navbarsContainer-1" aria-expanded="false" aria-label="Toggle navigation"
+          class="navbar-toggler navbar-toggler-right" data-target="#navbarContainer" data-toggle="collapse"
+          type="button">
+          <span class="navbar-toggler-icon">
+          </span>
+        </button>
+        <a href="/" title="SCiBEth">
+          <img alt="SCiBEth" class="navbar-brand store-image"
+            src="http://localhost:8080/ipfs/QmRCV4FTmBNSBg3fBTUFVyikHVgeYCyenJKqUR26P8A1Ko" />
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContainer">
+          <ul class="navbar-nav hidden-lg-up" id="navbarContainerMobile">
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="/" title="Inicio">
+                Inicio
+              </a>
+            </li>
+
+            <!--   <li class="nav-item dropdown ">
+                          <a href="/Categorias"  title="Categorias" class="dropdown-toggle level-1 trsn nav-link" data-toggle="dropdown">Categorias</a>                          
+                          <ul class="dropdown-menu multi-level" id="categories">                            
+                                           
+                                <li class="nav-item  ">
+                                  <a href="/Art"  title="Art" class="level-1 trsn nav-link" id="categories">Art</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Books"  title="Books" class="level-1 trsn nav-link" id="categories">Books</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cameras"  title="Cameras" class="level-1 trsn nav-link" id="categories">Cameras</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cell Phones & Accessories"  title="Cell Phones & Accessories" class="level-1 trsn nav-link" id="categories">Cell Phones & Accessories</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Clothing"  title="Clothing" class="level-1 trsn nav-link" id="categories">Clothing</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Computers & Tablets"  title="Computers & Tablets" class="level-1 trsn nav-link" id="categories">Computers & Tablets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Gift Cards & Coupons"  title="Gift Cards & Coupons" class="level-1 trsn nav-link" id="categories">Gift Cards & Coupons</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Musical Instruments & Gear"  title="Musical Instruments & Gear" class="level-1 trsn nav-link" id="categories">Musical Instruments & Gear</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pet Supplies"  title="Pet Supplies" class="level-1 trsn nav-link" id="categories">Pet Supplies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pottery & Glass"  title="Pottery & Glass" class="level-1 trsn nav-link" id="categories">Pottery & Glass</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Sporting Goods"  title="Sporting Goods" class="level-1 trsn nav-link" id="categories">Sporting Goods</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Tickets"  title="Tickets" class="level-1 trsn nav-link" id="categories">Tickets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Toys & Hobbies"  title="Toys & Hobbies" class="level-1 trsn nav-link" id="categories">Toys & Hobbies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Video Games"  title="Video Games" class="level-1 trsn nav-link" id="categories">Video Games</a>
+                                </li>                                                       
+                          </ul>
+                        </li>-->
+
+
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="list-item.html" title="Añadir Producto">
+                Añadir Producto
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="http://blog.luismateosfernandez.es/" title="Blog">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Blog">
+                Sobre Nosotros
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Contact">
+                ¿Cómo Funciona?
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav float-left nav-top">
+            <li class="trsn nav-link">
+              <i class="fa fa-user fa-fw"></i>
+              <span class="customer-name" id="cuenta"></span>
+            </li>
+            <li class="trsn nav-link">
+              <i class="fa fa-money"></i>
+              <span class="customer-name" id="cantidad-cuenta"></span>
+            </li>
+
+          </ul>
+          <ul class="social list-inline hidden-lg-up">
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar-inverse bg-inverse navbar-toggleable-md">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarsContainer-2">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="/" title="Inicio">
+                Inicio
+              </a>
+            </li>
+
+            <!-- <li class="nav-item dropdown ">
+                          <a href="/Categorias"  title="Categorias" class="dropdown-toggle level-1 trsn nav-link" data-toggle="dropdown">Categorias</a>                          
+                          <ul class="dropdown-menu multi-level" id="categories">                            
+                           
+                                <li class="nav-item  ">
+                                  <a href="/Art"  title="Art" class="level-1 trsn nav-link" id="categories">Art</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Books"  title="Books" class="level-1 trsn nav-link" id="categories">Books</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cameras"  title="Cameras" class="level-1 trsn nav-link" id="categories">Cameras</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cell Phones & Accessories"  title="Cell Phones & Accessories" class="level-1 trsn nav-link" id="categories">Cell Phones & Accessories</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Clothing"  title="Clothing" class="level-1 trsn nav-link" id="categories">Clothing</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Computers & Tablets"  title="Computers & Tablets" class="level-1 trsn nav-link" id="categories">Computers & Tablets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Gift Cards & Coupons"  title="Gift Cards & Coupons" class="level-1 trsn nav-link" id="categories">Gift Cards & Coupons</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Musical Instruments & Gear"  title="Musical Instruments & Gear" class="level-1 trsn nav-link" id="categories">Musical Instruments & Gear</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pet Supplies"  title="Pet Supplies" class="level-1 trsn nav-link" id="categories">Pet Supplies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pottery & Glass"  title="Pottery & Glass" class="level-1 trsn nav-link" id="categories">Pottery & Glass</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Sporting Goods"  title="Sporting Goods" class="level-1 trsn nav-link" id="categories">Sporting Goods</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Tickets"  title="Tickets" class="level-1 trsn nav-link" id="categories">Tickets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Toys & Hobbies"  title="Toys & Hobbies" class="level-1 trsn nav-link" id="categories">Toys & Hobbies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Video Games"  title="Video Games" class="level-1 trsn nav-link" id="categories">Video Games</a>
+                                </li>                                                       
+                          </ul>
+                        </li>-->
+
+
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="list-item.html" title="Añadir Producto">
+                Añadir Producto
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="http://blog.luismateosfernandez.es/" title="Blog">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Sobre Nosotros">
+                Sobre Nosotros
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="¿Cómo Funciona?">
+                ¿Cómo Funciona?
+              </a>
+            </li>
+          </ul>
+
+          <ul class="social navbar-toggler-right list-inline">
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Page Content -->
+
+  <div class="container">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <h1 class="page-header">
+        Añadir Producto
+      </h1>
+    </div>
+    <div class="container">
+
+      <div class="col-sm-12">
+        <div style="display: none;" class="alert alert-success text-center" id="msg"></div>
+        <div style="display: none;" class="alert alert-danger text-center" id="error"></div>
+      </div>
+
+      <div class="row">
+
+        <form class="form-horizontal col-sm-12" id="add-item-to-store"
+          oninput="resultado.value=(price.value*valor2.value).toFixed(2); resultado2.value=(nowPrice.value*valor3.value).toFixed(2);">
+          <div class="form-group">
+            <label for="product-name" class="col-sm-3 control-label">Nombre</label>
+            <div class="col-sm-10">
+              <input type="text" name="product-name" class="form-control" id="product-name"
+                placeholder="Mando, iPhone, Pantalon, Zapatos, Ordenador, Tablet, ...." required="required"></input>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-description" class="col-sm-3 control-label">Descripcion</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" name="product-description" rows="8" id="product-description"
+                placeholder="Ingrese la descripción detallada del producto" required="required"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-image" class="col-sm-3 control-label">Cargar foto de producto</label>
+            <div class="col-sm-10">
+              <input type="file" name="product-image" class="form-control" id="product-image" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-category" class="col-sm-3 control-label">Categoría</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="product-category" id="product-category">
+                <option>Coches</option>
+                <option>Motor y Accesorios</option>
+                <option>Electrónica</option>
+                <option>Deporte y Ocio</option>
+                <option>Muebles, Deco y Jardín</option>
+                <option>Consolas y Videojuegos</option>
+                <option>Libros, Películas y Música</option>
+                <option>Moda y Accesorios</option>
+                <option>Niños y Bebés</option>
+                <option>Inmobiliaria</option>
+                <option>Electrodomésticos</option>
+                <option>Servicios</option>
+                <option>Otros</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-price" class="col-sm-3 control-label">Precio de salida</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="price" id="price" required="required"
+                placeholder="Precio en Ether, Ej: 0.3"></input>
+              <input type="hidden" value="" id="valor2" name="valor2">
+              <output name="resultado" for="price valor2"> </output> €
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-price" class="col-sm-3 control-label">Precio comprar ahora</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="nowPrice" id="nowPrice" required="required"
+                placeholder="Precio en Ether, Ej: 2"></input>
+              <input type="hidden" value="" id="valor3" name="valor3">
+              <output name="resultado2" for="nowPrice valor3"> </output> €
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-condition" class="col-sm-3 control-label">Condición del producto</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="product-condition" id="product-condition">
+                <option value="0">Nuevo</option>
+                <option value="1">Usado</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-price" class="col-sm-3 control-label">Hora de inicio de subasta</label>
+            <div class="col-sm-10">
+              <input type="datetime-local" class="form-control" name="product-auction-start" id="product-auction-start"
+                required="required"></input>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-price" class="col-sm-3 control-label">Días para ejecutar la subasta</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="product-auction-end" id="product-auction-end">
+                <option>1</option>
+                <option>3</option>
+                <option>5</option>
+                <option>7</option>
+                <option>10</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+              <button type="submit" class="btn btn-primary">Agregar producto a la tienda</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="container">
+    <center>
+      <footer>
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="powerd-by">
+              © 2018 SCiBEth. Todos los derechos reservados. Powered by
+              <a href="https://luismateosfernandez.es/" rel="nofollow" target="_blank" title="Página Oficial">
+                Luisito
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </footer>
+    </center>
+  </div>
+  <!-- </div>
+         /.container -->
+  <!-- Css -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css" />
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/bootstrap.filestyle/1.1.0/js/bootstrap-filestyle.min.js"></script>
+  </hr>
+</body>
+
+</html>

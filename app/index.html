@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>
+    SCiBEth
+  </title>
+  <meta content="La primera página de compras y subastas en la Blockchain." name="description" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Notario Virtual en el Blockchain de Ethereum" property="og:title" />
+  <meta content="website" property="og:type" />
+  <meta content="https://www.ethereum.org/images/logos/ETHEREUM-ICON_Black_small.png" property="og:image" />
+  <meta content="La primera página de compras y subastas en la Blockchain." property="og:description" />
+  <meta content="https://luismateosfernandez.es/" property="og:url" />
+  <meta content="Notario Virtual en el Blockchain de Ethereum" property="og:site_name" />
+  <meta content="Tienda de compra/venta y subastas contralado por el Blockchain de Ethereum." name="twitter:card" />
+  <link href="https://www.ethereum.org/images/logos/ETHEREUM-ICON_Black_small.png" rel="icon" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="./app.js"></script>
+</head>
+
+<body>
+
+  <div id="metamask-ausente" style="display:none; max-width: 1500px;
+    margin: 10px auto;">
+    <div class="alert alert-danger text-center" role="alert">
+      <div><strong>No conectado</strong></div>
+      <div>Para acceder a SCiBEth desde un navegador web, instale <a href="https://metamask.io/">Metamask</a> y vuelva a
+        cargar esta página.</div>
+    </div>
+  </div>
+
+  <div id="metamask-activo" style="display: none;"></div>
+
+  <!-- Navigation -->
+  <div class="fixed-top">
+    <nav class="navbar-light navbar-toggleable-md bg-faded">
+      <div class="container">
+        <button aria-controls="navbarsContainer-1" aria-expanded="false" aria-label="Toggle navigation"
+          class="navbar-toggler navbar-toggler-right" data-target="#navbarContainer" data-toggle="collapse"
+          type="button">
+          <span class="navbar-toggler-icon">
+          </span>
+        </button>
+        <a href="/" title="SCiBEth">
+          <img alt="SCiBEth" class="navbar-brand store-image"
+            src="http://localhost:8080/ipfs/QmRCV4FTmBNSBg3fBTUFVyikHVgeYCyenJKqUR26P8A1Ko" />
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContainer">
+          <ul class="navbar-nav hidden-lg-up" id="navbarContainerMobile">
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="/" title="Inicio">
+                Inicio
+              </a>
+            </li>
+
+            <li class="nav-item dropdown ">
+              <a href="/Categorias" title="Categorias" class="dropdown-toggle level-1 trsn nav-link"
+                data-toggle="dropdown">Categorias</a>
+              <ul class="dropdown-menu multi-level" id="categories">
+                <!--<li class="nav-item  ">
+                                  <a href="/Art"  title="Art" class="level-1 trsn nav-link" id="categories">Art</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Books"  title="Books" class="level-1 trsn nav-link" id="categories">Books</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cameras"  title="Cameras" class="level-1 trsn nav-link" id="categories">Cameras</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cell Phones & Accessories"  title="Cell Phones & Accessories" class="level-1 trsn nav-link" id="categories">Cell Phones & Accessories</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Clothing"  title="Clothing" class="level-1 trsn nav-link" id="categories">Clothing</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Computers & Tablets"  title="Computers & Tablets" class="level-1 trsn nav-link" id="categories">Computers & Tablets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Gift Cards & Coupons"  title="Gift Cards & Coupons" class="level-1 trsn nav-link" id="categories">Gift Cards & Coupons</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Musical Instruments & Gear"  title="Musical Instruments & Gear" class="level-1 trsn nav-link" id="categories">Musical Instruments & Gear</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pet Supplies"  title="Pet Supplies" class="level-1 trsn nav-link" id="categories">Pet Supplies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pottery & Glass"  title="Pottery & Glass" class="level-1 trsn nav-link" id="categories">Pottery & Glass</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Sporting Goods"  title="Sporting Goods" class="level-1 trsn nav-link" id="categories">Sporting Goods</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Tickets"  title="Tickets" class="level-1 trsn nav-link" id="categories">Tickets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Toys & Hobbies"  title="Toys & Hobbies" class="level-1 trsn nav-link" id="categories">Toys & Hobbies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Video Games"  title="Video Games" class="level-1 trsn nav-link" id="categories">Video Games</a>
+                                </li>        -->
+              </ul>
+            </li>
+
+
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="list-item.html" title="Añadir Producto">
+                Añadir Producto
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="http://blog.luismateosfernandez.es/" title="Blog">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Blog">
+                Sobre Nosotros
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Contact">
+                ¿Cómo Funciona?
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav float-left nav-top">
+            <li class="trsn nav-link">
+              <i class="fa fa-user fa-fw"></i>
+              <span class="customer-name" id="cuenta"></span>
+            </li>
+            <li class="trsn nav-link">
+              <i class="fa fa-money"></i>
+              <span class="customer-name" id="cantidad-cuenta"></span>
+            </li>
+
+          </ul>
+          <ul class="social list-inline hidden-lg-up">
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar-inverse bg-inverse navbar-toggleable-md">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarsContainer-2">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="/" title="Inicio">
+                Inicio
+              </a>
+            </li>
+
+            <li class="nav-item dropdown ">
+              <a href="/Categorias" title="Categorias" class="dropdown-toggle level-1 trsn nav-link"
+                data-toggle="dropdown">Categorias</a>
+              <ul class="dropdown-menu multi-level" id="categorias">
+                <!--<li class="nav-item  ">
+                                  <a href="/Art"  title="Art" class="level-1 trsn nav-link" id="categories">Art</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Books"  title="Books" class="level-1 trsn nav-link" id="categories">Books</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cameras"  title="Cameras" class="level-1 trsn nav-link" id="categories">Cameras</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cell Phones & Accessories"  title="Cell Phones & Accessories" class="level-1 trsn nav-link" id="categories">Cell Phones & Accessories</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Clothing"  title="Clothing" class="level-1 trsn nav-link" id="categories">Clothing</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Computers & Tablets"  title="Computers & Tablets" class="level-1 trsn nav-link" id="categories">Computers & Tablets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Gift Cards & Coupons"  title="Gift Cards & Coupons" class="level-1 trsn nav-link" id="categories">Gift Cards & Coupons</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Musical Instruments & Gear"  title="Musical Instruments & Gear" class="level-1 trsn nav-link" id="categories">Musical Instruments & Gear</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pet Supplies"  title="Pet Supplies" class="level-1 trsn nav-link" id="categories">Pet Supplies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pottery & Glass"  title="Pottery & Glass" class="level-1 trsn nav-link" id="categories">Pottery & Glass</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Sporting Goods"  title="Sporting Goods" class="level-1 trsn nav-link" id="categories">Sporting Goods</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Tickets"  title="Tickets" class="level-1 trsn nav-link" id="categories">Tickets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Toys & Hobbies"  title="Toys & Hobbies" class="level-1 trsn nav-link" id="categories">Toys & Hobbies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Video Games"  title="Video Games" class="level-1 trsn nav-link" id="categories">Video Games</a>
+                                </li>        -->
+              </ul>
+            </li>
+
+
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="list-item.html" title="Añadir Producto">
+                Añadir Producto
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="http://blog.luismateosfernandez.es/" title="Blog">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Sobre Nosotros">
+                Sobre Nosotros
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="¿Cómo Funciona?">
+                ¿Cómo Funciona?
+              </a>
+            </li>
+          </ul>
+          <ul class="social navbar-toggler-right list-inline">
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Page Content -->
+  <div class="carousel slide" data-ride="carousel" id="carousel-home">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active"
+        style="background-image:url('http://localhost:8080/ipfs/QmXjUbtYWeCcBdpuw7vSiRfLgDmCBsygjrJCrGJ4rpyN9q');">
+      </div>
+
+      <div class="carousel-item"
+        style="background-image:url('http://localhost:8080/ipfs/QmTHEybJDiRTSzJmaApCDkckrTeHbersTg2ykgGHrmPxsw');">
+      </div>
+
+      <div class="carousel-item"
+        style="background-image:url('http://localhost:8080/ipfs/QmXLPqVdnMGy4odeU962gufzhZqpfJ67A3yk5nNAucdciF');">
+      </div>
+
+      <div class="carousel-item"
+        style="background-image:url('http://localhost:8080/ipfs/QmPKRDm9tjb8H9VWobXWMRBNxgBpfeRTN42tAX576PsD1h');">
+      </div>
+    </div>
+    <!-- Controls -->
+    <a class="carousel-control-prev" data-slide="prev" href="#carousel-home" role="button">
+      <span aria-hidden="true" class="carousel-control-prev-icon">
+      </span>
+      <span class="sr-only">
+        Anterior
+      </span>
+    </a>
+    <a class="carousel-control-next" data-slide="next" href="#carousel-home" role="button">
+      <span aria-hidden="true" class="carousel-control-next-icon">
+      </span>
+      <span class="sr-only">
+        Siguiente
+      </span>
+    </a>
+  </div>
+  <!-- Page Content -->
+  <div class="container">
+    <!-- Products Section -->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <h2 class="page-header">
+        Productos en Venta
+      </h2>
+    </div>
+    <div class="row" id="product-list">
+      <!-- Featured Products -->
+
+
+
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <h2 class="page-header">
+        Productos en Etapa de Revelar
+      </h2>
+    </div>
+
+    <div class="text-center"><strong>Las pujas deben ser reveladas dentro de los 10 minutos posteriores a la hora de
+        finalización de la subasta</strong></div><br>
+
+    <div class="row" id="product-reveal-list">
+
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <h2 class="page-header">
+        Productos en Etapa de Finalizar
+      </h2>
+    </div>
+
+    <div class="text-center"><strong>Quien finaliza la subasta es el Árbitro</strong></div> <br>
+
+    <div class="row" id="product-finalize-list">
+
+
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <h2 class="page-header">
+          Productos Vendidos
+        </h2>
+      </div>
+
+      <div class="row" id="productos-vendidos">
+
+      </div>
+      <!-- /.container -->
+    </div>
+    <hr>
+    <!-- Footer -->
+    <div class="container">
+      <center>
+        <footer>
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="powerd-by">
+                © 2018 SCiBEth. Todos los derechos reservados. Powered by
+                <a href="https://luismateosfernandez.es/" rel="nofollow" target="_blank" title="Página Oficial">
+                  Luisito
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </footer>
+      </center>
+    </div>
+
+    <!--/div-->
+    <!-- /.container -->
+    <!-- Css -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      type="text/css" />
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/bootstrap.filestyle/1.1.0/js/bootstrap-filestyle.min.js"></script>
+    </hr>
+</body>
+
+</html>

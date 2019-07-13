@@ -1,0 +1,6 @@
+/node_modules
+/DatosPropios
+/imagenes
+/build/contracts
+package-lock.json
+seed.js

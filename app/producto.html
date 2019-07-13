@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>
+    SCiBEth
+  </title>
+  <meta content="La primera página de compras y subastas en la Blockchain." name="description" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Notario Virtual en el Blockchain de Ethereum" property="og:title" />
+  <meta content="website" property="og:type" />
+  <meta content="https://www.ethereum.org/images/logos/ETHEREUM-ICON_Black_small.png" property="og:image" />
+  <meta content="La primera página de compras y subastas en la Blockchain." property="og:description" />
+  <meta content="https://luismateosfernandez.es/" property="og:url" />
+  <meta content="Notario Virtual en el Blockchain de Ethereum" property="og:site_name" />
+  <meta content="Tienda de compra/venta y subastas contralado por el Blockchain de Ethereum." name="twitter:card" />
+  <link href="https://www.ethereum.org/images/logos/ETHEREUM-ICON_Black_small.png" rel="icon" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="./app.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      cargarDatos(document.getElementById("valor2"));
+      cargarDatos(document.getElementById("valor3"));
+    }
+
+    function cargarDatos(VALOR) {
+      var xhReq = new XMLHttpRequest();
+      xhReq.open("GET", "https://api.coinmarketcap.com/v2/ticker/1027/?convert=EUR", false);
+      xhReq.send(null);
+      var jsonObject = JSON.parse(xhReq.responseText);
+      var precioEthAEur = jsonObject.data.quotes.EUR.price;
+
+      console.log(precioEthAEur);
+
+      VALOR.value = precioEthAEur;
+
+    }
+  </script>
+</head>
+
+<body>
+
+  <div id="metamask-ausente" style="display:none; max-width: 1500px;
+    margin: 10px auto;">
+    <div class="alert alert-danger text-center" role="alert">
+      <div><strong>No conectado</strong></div>
+      <div>Para acceder a SCiBEth desde un navegador web, instale <a href="https://metamask.io/">Metamask</a> y vuelva a
+        cargar esta página.</div>
+    </div>
+  </div>
+
+  <!--<div id="metamask-activo" style="display: none;">
+     Navigation -->
+  <div class="fixed-top">
+    <nav class="navbar-light navbar-toggleable-md bg-faded">
+      <div class="container">
+        <button aria-controls="navbarsContainer-1" aria-expanded="false" aria-label="Toggle navigation"
+          class="navbar-toggler navbar-toggler-right" data-target="#navbarContainer" data-toggle="collapse"
+          type="button">
+          <span class="navbar-toggler-icon">
+          </span>
+        </button>
+        <a href="/" title="SCiBEth">
+          <img alt="SCiBEth" class="navbar-brand store-image"
+            src="http://localhost:8080/ipfs/QmRCV4FTmBNSBg3fBTUFVyikHVgeYCyenJKqUR26P8A1Ko" />
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContainer">
+          <ul class="navbar-nav hidden-lg-up" id="navbarContainerMobile">
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="/" title="Inicio">
+                Inicio
+              </a>
+            </li>
+
+            <!-- <li class="nav-item dropdown ">
+                          <a href="/Categorias"  title="Categorias" class="dropdown-toggle level-1 trsn nav-link" data-toggle="dropdown">Categorias</a>                          
+                          <ul class="dropdown-menu multi-level" id="categories">                            
+                           
+                                <li class="nav-item  ">
+                                  <a href="/Art"  title="Art" class="level-1 trsn nav-link" id="categories">Art</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Books"  title="Books" class="level-1 trsn nav-link" id="categories">Books</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cameras"  title="Cameras" class="level-1 trsn nav-link" id="categories">Cameras</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cell Phones & Accessories"  title="Cell Phones & Accessories" class="level-1 trsn nav-link" id="categories">Cell Phones & Accessories</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Clothing"  title="Clothing" class="level-1 trsn nav-link" id="categories">Clothing</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Computers & Tablets"  title="Computers & Tablets" class="level-1 trsn nav-link" id="categories">Computers & Tablets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Gift Cards & Coupons"  title="Gift Cards & Coupons" class="level-1 trsn nav-link" id="categories">Gift Cards & Coupons</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Musical Instruments & Gear"  title="Musical Instruments & Gear" class="level-1 trsn nav-link" id="categories">Musical Instruments & Gear</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pet Supplies"  title="Pet Supplies" class="level-1 trsn nav-link" id="categories">Pet Supplies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pottery & Glass"  title="Pottery & Glass" class="level-1 trsn nav-link" id="categories">Pottery & Glass</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Sporting Goods"  title="Sporting Goods" class="level-1 trsn nav-link" id="categories">Sporting Goods</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Tickets"  title="Tickets" class="level-1 trsn nav-link" id="categories">Tickets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Toys & Hobbies"  title="Toys & Hobbies" class="level-1 trsn nav-link" id="categories">Toys & Hobbies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Video Games"  title="Video Games" class="level-1 trsn nav-link" id="categories">Video Games</a>
+                                </li>                                                      
+                          </ul>
+
+                        </li> -->
+
+
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="list-item.html" title="Añadir Producto">
+                Añadir Producto
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="http://blog.luismateosfernandez.es/" title="Blog">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Blog">
+                Sobre Nosotros
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Contact">
+                ¿Cómo Funciona?
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav float-right nav-top">
+            <li class="trsn nav-link">
+              <i class="fa fa-user fa-fw"></i>
+              <span class="customer-name" id="cuenta"></span>
+            </li>
+            <li class="trsn nav-link">
+              <i class="fa fa-money"></i>
+              <span class="customer-name" id="cantidad-cuenta"></span>
+            </li>
+
+          </ul>
+          <ul class="social list-inline hidden-lg-up">
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar-inverse bg-inverse navbar-toggleable-md">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarsContainer-2">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="/" title="Inicio">
+                Inicio
+              </a>
+            </li>
+
+            <!-- <li class="nav-item dropdown ">
+                          <a href="/Categorias"  title="Categorias" class="dropdown-toggle level-1 trsn nav-link" data-toggle="dropdown">Categorias</a>                          
+                          <ul class="dropdown-menu multi-level" id="categories">                            
+                          
+                                <li class="nav-item  ">
+                                  <a href="/Art"  title="Art" class="level-1 trsn nav-link" id="categories">Art</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Books"  title="Books" class="level-1 trsn nav-link" id="categories">Books</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cameras"  title="Cameras" class="level-1 trsn nav-link" id="categories">Cameras</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Cell Phones & Accessories"  title="Cell Phones & Accessories" class="level-1 trsn nav-link" id="categories">Cell Phones & Accessories</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Clothing"  title="Clothing" class="level-1 trsn nav-link" id="categories">Clothing</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Computers & Tablets"  title="Computers & Tablets" class="level-1 trsn nav-link" id="categories">Computers & Tablets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Gift Cards & Coupons"  title="Gift Cards & Coupons" class="level-1 trsn nav-link" id="categories">Gift Cards & Coupons</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Musical Instruments & Gear"  title="Musical Instruments & Gear" class="level-1 trsn nav-link" id="categories">Musical Instruments & Gear</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pet Supplies"  title="Pet Supplies" class="level-1 trsn nav-link" id="categories">Pet Supplies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Pottery & Glass"  title="Pottery & Glass" class="level-1 trsn nav-link" id="categories">Pottery & Glass</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Sporting Goods"  title="Sporting Goods" class="level-1 trsn nav-link" id="categories">Sporting Goods</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Tickets"  title="Tickets" class="level-1 trsn nav-link" id="categories">Tickets</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Toys & Hobbies"  title="Toys & Hobbies" class="level-1 trsn nav-link" id="categories">Toys & Hobbies</a>
+                                </li> 
+                                <li class="nav-item  ">
+                                  <a href="/Video Games"  title="Video Games" class="level-1 trsn nav-link" id="categories">Video Games</a>
+                                </li>                                                       
+                          </ul>
+                        </li>-->
+
+
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="list-item.html" title="Añadir Producto">
+                Añadir Producto
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="http://blog.luismateosfernandez.es/" title="Blog">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="Sobre Nosotros">
+                Sobre Nosotros
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="level-1 trsn nav-link" href="#" title="¿Cómo Funciona?">
+                ¿Cómo Funciona?
+              </a>
+            </li>
+          </ul>
+          <ul class="social navbar-toggler-right list-inline">
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Page Content -->
+
+  <section class="container">
+    <div class="row">
+      <section class="col-sm-12 col-md-12 hidden-sm-down">
+        <ol class="breadcrumb">
+
+
+          <li class="breadcrumb-item"><a href="/" class="trsn" title="Volver a Inicio">Inicio</a></li>
+
+
+
+          <li class="breadcrumb-item"><span id="product-name"></span></li>
+
+
+        </ol>
+      </section>
+    </div>
+  </section>
+
+
+  <div class="container">
+    <div class="col-sm-12">
+      <div style="display: none;" class="alert alert-success text-center" id="msg"></div>
+      <div style="display: none;" class="alert alert-danger text-center" id="error"></div>
+    </div>
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <h1 class="page-header" id="product-name2"></h1>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 mb-4">
+
+        <!-- There's only One image -->
+        <div class="">
+          <div class="main-product-image" id="product-image">
+          </div> <br>
+          <h4 class="col-sm-3 col-md-3 form-control-label nopaddingtop">Descripción:</h4>
+          <hr>
+          <div class="col-sm-8 col-md-9 description" id="product-desc"></div>
+
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <div class="col-sm-12">
+
+          <div id="product-details">
+            <!-- Product Price  -->
+            <div class="form-group price_elem row">
+              <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Precio de Inicio:</label>
+              <div class="col-sm-8 col-md-9">
+                <span class="product-form-price" id="product-price"></span>
+              </div>
+            </div>
+
+            <div class="form-group price_elem row">
+              <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Condición:</label>
+              <div class="col-sm-8 col-md-9">
+                <span class="product-form-price" id="product-estado"></span>
+              </div>
+            </div>
+
+
+
+            <div class="form-group price_elem row">
+              <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Tiempo que queda:</label>
+              <div class="col-sm-8 col-md-9">
+                <span class="product-form-price" id="product-auction-end"></span>
+              </div>
+            </div>
+
+            <div class="form-group price_elem row">
+              <div class="col-sm-8 col-md-9">
+                <form id="bidding" class="col-sm-12"
+                  oninput="resultado.value=(bidAmount.value*valor2.value).toFixed(2); resultado2.value=(bidSendAmount.value*valor3.value).toFixed(2);">
+                  <h4>Hacer Puja</h4>
+                  <div class="form-group">
+                    <label for="bidAmount">Cantidad que puja</label>
+                    <input type="text" class="form-control" name="bidAmount" id="bidAmount"
+                      placeholder="Cantidad > Precio de salida" required="required">
+                    <input type="hidden" value="" id="valor2" name="valor2">
+                    <output name="resultado" for="bidAmount valor2"> </output> €
+                  </div>
+                  <div class="form-group">
+                    <label for="bidSendAmount">Cantidad que envia</label>
+                    <input type="text" class="form-control" name="bidSendAmount" id="bidSendAmount"
+                      placeholder="Cantidad >= Cantidad de oferta" required="required">
+                    <input type="hidden" value="" id="valor3" name="valor3">
+                    <output name="resultado2" for="bidSendAmount valor3"> </output> €
+                  </div>
+                  <div class="form-group">
+                    <label for="secret-text">Texto secreto</label>
+                    <input type="text" class="form-control" name="secret-text" id="secret-text"
+                      placeholder="Cualquier texto aleatorio" required="required">
+                  </div>
+                  <input type="hidden" name="product-id" id="product-id" />
+                  <button type="submit" class="btn  form-submit">Hacer Puja</button>
+                </form>
+              </div>
+            </div>
+
+
+
+            <div id="product-sku" class="form-group row sku" style="visibility:hidden">
+              <label class="col-3 form-control-label nopaddingtop">SKU: </label>
+              <div class="col-9">
+                <span class="sku_elem"></span>
+              </div>
+            </div>
+
+            <hr>
+
+
+            <div class="form-group price_elem row">
+              <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Precio Comprar Ahora:</label>
+              <div class="col-sm-8 col-md-9">
+                <span class="product-form-price" id="product-buy-now-price"></span>
+              </div>
+              <form id="buy-now" class="col-sm-12">
+                <input type="hidden" name="product-id" id="product-id" />
+                <input type="hidden" name="buy-now-price" id="buy-now-price" />
+                <br>
+                <button type="submit" class="btn form-submit">Comprar Ahora</button>
+              </form>
+            </div>
+            <hr>
+
+            <div id="product-sku" class="form-group row sku" style="visibility:hidden">
+              <label class="col-3 form-control-label nopaddingtop">SKU: </label>
+              <div class="col-9">
+                <span class="sku_elem"></span>
+              </div>
+            </div>
+
+
+
+            <div class="form-group row">
+              <div class="col-sm-9 col-md-9">
+
+                <div id="product-status"></div>
+
+                <form id="revealing" class="col-sm-12">
+                  <h4>Revelar Puja</h4>
+                  <div class="form-group">
+                    <label for="actual-amount">Cantidad de tu puja</label>
+                    <input type="text" class="form-control" name="actual-amount" id="actual-amount"
+                      placeholder="Cantidad > Precio de salida" required="required">
+                  </div>
+                  <div class="form-group">
+                    <label for="reveal-secret-text">Texto secreto</label>
+                    <input type="text" class="form-control" name="reveal-secret-text" id="reveal-secret-text"
+                      placeholder="Cualquier texto aleatorio" required="required">
+                  </div>
+                  <input type="hidden" name="product-id" id="product-id" />
+                  <button type="submit" class="btn form-submit">Revelar Puja</button>
+                </form>
+
+                <form id="finalize-auction" class="col-sm-6">
+                  <input type="hidden" name="product-id2" id="product-id2" />
+                  <input type="hidden" name="deposito-arbitro" id="deposito-arbitro" value=5000000000000000000 />
+                  <button type="submit" class="btn form-submit">Fin de la Subasta</button>
+                </form>
+
+              </div>
+            </div>
+
+            <div class="form-group row">
+
+              <div class="col-sm-9 col-md-9" id="escrow-info">
+                <div id="buyer"></div>
+                <div id="seller"></div>
+                <div id="arbiter"></div>
+                <div id="release-count"></div>
+                <div id="boton-1">
+                  <button id='release-funds' class='btn form-submit'>Enviar dinero al vendedor</button>
+                </div><br>
+                <div id="refund-count"></div>
+                <div id="boton-2">
+                  <button id='refund-funds' class='btn form-submit'>Devolver dinero al comprador</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- Footer -->
+    <div class="container">
+      <center>
+        <footer>
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="powerd-by">
+                © 2018 SCiBEth. Todos los derechos reservados. Powered by
+                <a href="https://luismateosfernandez.es/" rel="nofollow" target="_blank" title="Página Oficial">
+                  Luisito
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </footer>
+      </center>
+    </div>
+    <!-- </div>
+         /.container -->
+    <!-- Css -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      type="text/css" />
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/bootstrap.filestyle/1.1.0/js/bootstrap-filestyle.min.js"></script>
+    </hr>
+</body>
+
+</html>
