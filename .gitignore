@@ -4,3 +4,4 @@
 /build/contracts
 package-lock.json
 seed.js
+.babelrc
